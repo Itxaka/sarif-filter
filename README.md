@@ -20,4 +20,4 @@ steps:
 |--------------------|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `input`        | string    | Input file to filter    |
 | `output`            | string    | Output file to save the filtered alerts                        |
-| `severity`      | string        | Max severity level to save to the file. Anything below this level will not appear in the final file                                                                                                                                           |
+| `severity`      | string        | Max severity level to save to the file. Anything below this level will not appear in the final file. Possible values: critical, high, medium or low                                                                                                                                          |
