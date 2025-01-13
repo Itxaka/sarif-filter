@@ -17,4 +17,5 @@ runs:
       uses: actions/setup-python@v5
     - name: Filter
       id: filter
+      shell: bash
       run: python sarif-filter.py --min-severity ${{ inputs.severity }} ${{ inputs.file }} ${{ inputs.output }}  
