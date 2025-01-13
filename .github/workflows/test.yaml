@@ -1,0 +1,16 @@
+# .github/workflows/test_action.yaml
+name: Test Action
+on: [push]
+
+jobs:
+  get-num-square:
+    runs-on: ubuntu-latest
+    name: test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: whatevs
+        uses: ./ # Uses an action in the root directory
+        with:
+          input: test.sarif
+          output: output.sarif
