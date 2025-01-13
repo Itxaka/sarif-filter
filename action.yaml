@@ -1,6 +1,9 @@
 # action.yaml
 name: 'Sarif filter'
-description: 'A GitHub Action that filters entries in a sarif file based on teh minimum severity'
+description: 'A GitHub Action that filters entries in a sarif file based on the minimum severity'
+branding:
+  icon: 'filter'
+  color: 'gray-dark'
 inputs:
   input:
     description: 'Input file to filter'
