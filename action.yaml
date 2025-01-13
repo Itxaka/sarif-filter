@@ -1,0 +1,20 @@
+# action.yaml
+name: 'Sarif filter'
+description: 'A GitHub Action that filters entries in a sarif file based on teh minimum severity'
+inputs:
+  file:
+    description: 'Enter a number'
+    required: true
+  output:
+    required: true
+  severity:
+    required: true
+    default: "high"
+runs:
+  using: 'composite'
+  steps:
+    - name: Install Python
+      uses: actions/setup-python@v5
+    - name: Filter
+      id: filter
+      run: python sarif-filter.py --min-severity ${{ inputs.severity }} ${{ inputs.file }} ${{ inputs.output }}  
