@@ -12,7 +12,7 @@ jobs:
       - name: Filter sarif file
         uses: ./ # Uses an action in the root directory
         with:
-          input: test.sarif
+          input: .github/workflows/test.sarif
           output: output.sarif
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v3
