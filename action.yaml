@@ -2,12 +2,14 @@
 name: 'Sarif filter'
 description: 'A GitHub Action that filters entries in a sarif file based on teh minimum severity'
 inputs:
-  file:
-    description: 'Enter a number'
+  input:
+    description: 'Input file to filter'
     required: true
   output:
+    description: 'Output filtered file'
     required: true
   severity:
+    description: 'minimal severity, it can be 'critical', 'high', 'medium' or 'low', anyting lower than the chosen will be dropped'
     required: true
     default: "high"
 runs:
@@ -18,4 +20,4 @@ runs:
     - name: Filter
       id: filter
       shell: bash
-      run: python sarif-filter.py --min-severity ${{ inputs.severity }} ${{ inputs.file }} ${{ inputs.output }}  
+      run: python sarif-filter.py --min-severity ${{ inputs.severity }} ${{ inputs.input }} ${{ inputs.output }}  
