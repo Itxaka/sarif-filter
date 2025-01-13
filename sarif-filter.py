@@ -90,7 +90,7 @@ def filter_sarif(input_file: str, output_file: str, min_severity: Optional[str] 
             sarif_data = json.load(f)
     except Exception as e:
         logging.error(f"Failed to read input file: {e}")
-        return
+        exit(1)
 
     total_results = 0
     kept_results = 0
