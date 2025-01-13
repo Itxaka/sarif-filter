@@ -9,7 +9,7 @@ inputs:
     description: 'Output filtered file'
     required: true
   severity:
-    description: 'minimal severity, it can be 'critical', 'high', 'medium' or 'low', anyting lower than the chosen will be dropped'
+    description: 'minimal severity, it can be critical, high, medium or low, anything lower than the chosen will be dropped'
     required: true
     default: "high"
 runs:
@@ -17,6 +17,8 @@ runs:
   steps:
     - name: Install Python
       uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
     - name: Filter
       id: filter
       shell: bash
