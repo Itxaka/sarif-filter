@@ -3,14 +3,22 @@ name: Test Action
 on: [push]
 
 jobs:
-  get-num-square:
+  test-filter:
     runs-on: ubuntu-latest
     name: test
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: whatevs
+      - name: Filter sarif file
         uses: ./ # Uses an action in the root directory
         with:
           input: test.sarif
           output: output.sarif
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          # Path to SARIF file relative to the root of the repository
+          sarif_file: output.sarif
+          # Optional category for the results
+          # Used to differentiate multiple results for one commit
+          category: ${{ github.sha }}
