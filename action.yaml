@@ -25,4 +25,4 @@ runs:
     - name: Filter
       id: filter
       shell: bash
-      run: python sarif-filter.py --min-severity ${{ inputs.severity }} ${{ inputs.input }} ${{ inputs.output }}  
+      run: python $GITHUB_ACTION_PATH/sarif-filter.py --min-severity ${{ inputs.severity }} ${{ inputs.input }} ${{ inputs.output }}  
