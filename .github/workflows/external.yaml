@@ -1,0 +1,26 @@
+# .github/workflows/test_action.yaml
+name: Test Action from external
+on: [push]
+
+jobs:
+  test-filter:
+    runs-on: ubuntu-latest
+    name: test
+    permissions:
+      security-events: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Filter sarif file
+        uses: itxaka/sarif-filter@v1
+        with:
+          input: .github/workflows/test.sarif
+          output: output.sarif
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          # Path to SARIF file relative to the root of the repository
+          sarif_file: output.sarif
+          # Optional category for the results
+          # Used to differentiate multiple results for one commit
+          category: ${{ github.sha }}
