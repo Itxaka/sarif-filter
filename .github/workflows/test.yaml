@@ -10,7 +10,7 @@ jobs:
       security-events: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Filter sarif file
         uses: ./ # Uses an action in the root directory
         with:
